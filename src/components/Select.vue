@@ -46,7 +46,7 @@
 
         <slot name="search" v-bind="scope.search">
           <input
-            ref="searchInput"
+            ref="search"
             class="vs__search"
             v-bind="scope.search.attributes"
             v-on="scope.search.events"
@@ -687,7 +687,7 @@ export default {
     this.$on("option:created", this.pushTag);
   },
   mounted() {
-    this.$refs.searchInput.focus();
+    this.$refs.search.focus();
     this.onSearchFocus();
   },
   methods: {
