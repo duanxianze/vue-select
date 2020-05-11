@@ -143,6 +143,13 @@ export default {
 
   props: {
     /**
+     * autofocus
+     */
+    autofocus: {
+      type: Boolean,
+      default: false
+    },
+    /**
      * Contains the currently selected value. Very similar to a
      * `value` attribute on an <input>. You can listen for changes
      * using 'change' event using v-on
@@ -687,8 +694,10 @@ export default {
     this.$on("option:created", this.pushTag);
   },
   mounted() {
-    this.$refs.search.focus();
-    this.onSearchFocus();
+    if (this.autofocus) {
+      this.$refs.search.focus();
+      this.onSearchFocus();
+    }
   },
   methods: {
     /**
